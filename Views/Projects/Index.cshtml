@@ -1,6 +1,6 @@
 ﻿@model List<Project>
 @{
-
+    //Razor Block
     ViewData["Title"] = "Projects";
 }
 
@@ -12,15 +12,9 @@
 
         <thead>
             <tr>
-            <td>
-                ID
-            </td>
-            <td>
-                Name
-            </td>
-             <td>
-                Description
-             </td>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Description</td>
             </tr>
         </thead>
         <tbody>
@@ -30,7 +24,7 @@
                 <td> @project.Name</td>
                 <td> @project.Description</td>
             </tr>
-            
+          
         }
         </tbody>
     </table>
