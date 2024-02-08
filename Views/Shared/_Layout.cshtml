@@ -7,15 +7,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Lab1.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-    integrity="sha512-XyZfuwMtbEwxvpGoLd2buJjfFvsFhNpKufYukFzBoFXgpgC2M4ZLJcGp0aV2jIz5vB3rX2s1UppNng2nbW1ylMw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">COMP2139_Labs</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MVC Application</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,13 +27,9 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About"><i class="fa-duotone fa-circle-info"></i> About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Index"><i class="fa-duotone fa-list-check"></i> Projects</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Index">Projects<i class="fa-duotone fa-list-check"></i></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Create"><i class="fa-duotone fa-database"></i> Create</a>
-                        </li>
-
-                    </ul>
+                       </ul>
                 </div>
             </div>
         </nav>
@@ -48,7 +42,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - COMP2139_Labs - <a asp-area="" asp-controller="Home" asp-action="Privacy">Luilson Sousa</a>
+            &copy; 2024 - Course_COMP2139 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Luilson Sousa</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

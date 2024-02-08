@@ -1,16 +1,20 @@
-﻿@model Project
+﻿@model Lab1.Models.Project
 @{
     //Razor Block
     ViewData["Title"] = "Create Project";
 }
 
-<h2>Create Project</h2>
+<h1>Create</h1>
 
-<form asp-action="Create" method="post">
-    <!-- indicates that the form data will be submitted to the Create action of the current controller -->
-
+<h4>Project</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4"></div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
     <div class="form-group">
-        <label asp-for="Name" class="control-label"></label>  <!-- asp-for tag used to bind input fields to the correspondent -->
+        <label asp-for="Name" class="control-label"></label>  
         <input asp-for="Name" class="form-control" />
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
@@ -20,13 +24,33 @@
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     <div class="form-group">
+        <label asp-for="StartDate" class="control-label"></label>
+        <input asp-for="StartDate" class="form-control" />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EndDate" class="control-label"></label>
+        <input asp-for="EndDate" class="form-control" />
+        <span asp-validation-for="EndDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Status" class="control-label"></label>
+            <select asp-for="Status" class="form-control">
+                <option value="">Select a status</option>
+                <option value="New">New</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Complete">Complete</option>
+            </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />
     </div>
 </form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
-<!-- The section Scripts block at the bottom includes client-side validation scripts
-     _validationScriptsPartial is by default available in Shared/ folder.
--->
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
