@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Lab1.Models;
+using MVC_Application.Models;
 
-namespace Lab1.Data
+namespace MVC_Application.Data
 {
     public class AppDbContext : DbContext
     {

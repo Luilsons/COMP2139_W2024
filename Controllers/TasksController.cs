@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Lab1.Data;
-using Lab1.Models;
+using MVC_Application.Data;
+using MVC_Application.Models;
 
-namespace Lab1.Controllers
+namespace MVC_Application.Controllers
 {
     public class TasksController : Controller
     {
@@ -22,7 +22,7 @@ namespace Lab1.Controllers
             var tasks = _db.ProjectTasks
                                 .Where(t => t.ProjectId == projectId)
                                 .ToList();
-            ViewBag.ProjectId = projectId;     // Store projectId in ViewBag
+            ViewBag.ProjectId = projectId;
             return View(tasks);
         }
 
@@ -31,7 +31,7 @@ namespace Lab1.Controllers
         public IActionResult Details(int id)
         {
             var task = _db.ProjectTasks
-                            .Include(t => t.Project) // Include related project data
+                            .Include(t => t.Project)
                             .FirstOrDefault(t => t.ProjectTaskId == id);
 
             if (task == null)
@@ -48,7 +48,7 @@ namespace Lab1.Controllers
             var project = _db.Projects.Find(projectId);
             if (project == null)
             {
-                return NotFound(); // Or handle appropriately if project doesn't exist
+                return NotFound();
             }
 
             var task = new ProjectTask
@@ -61,6 +61,7 @@ namespace Lab1.Controllers
 
 
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("Title", "Description", "ProjectId")] ProjectTask task)
@@ -69,20 +70,19 @@ namespace Lab1.Controllers
             {
                 _db.ProjectTasks.Add(task);
                 _db.SaveChanges();
-                // Redirect to the Index action with the projectId of the created task
                 return RedirectToAction(nameof(Index), new { projectId = task.ProjectId });
             }
 
-            // Repopulate the Projects SelectList if returning to the form
             ViewBag.Projects = new SelectList(_db.Projects, "ProjectId", "Name", task.ProjectId);
             return View(task);
         }
+
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
             var task = _db.ProjectTasks
-                                .Include(t => t.Project) // Include related project data
+                                .Include(t => t.Project)
                                 .FirstOrDefault(t => t.ProjectTaskId == id);
 
             if (task == null)
@@ -118,8 +118,8 @@ namespace Lab1.Controllers
         public IActionResult Delete(int id)
         {
             var task = _db.ProjectTasks
-                                .Include(t => t.Project) // Include related project data
-                                .FirstOrDefault(t => t.ProjectTaskId == id);
+                    .Include(p => p.Project)
+                    .FirstOrDefault(t => t.ProjectTaskId == id);
 
             if (task == null)
             {
@@ -131,9 +131,9 @@ namespace Lab1.Controllers
 
         [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int ProjectTaskId)
+        public IActionResult DeleteConfirmed(int projectTaskId)
         {
-            var task = _db.ProjectTasks.Find(ProjectTaskId);
+            var task = _db.ProjectTasks.FirstOrDefault(t => t.ProjectTaskId == projectTaskId);
             if (task != null)
             {
                 _db.ProjectTasks.Remove(task);

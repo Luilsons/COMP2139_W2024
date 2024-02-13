@@ -1,15 +1,12 @@
-﻿@model Lab1.Models.Project
+﻿@model MVC_Application.Models.Project
 
 @{
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
+<h1 class="display-2">Delete project</h1>
+<hr />
 <div>
-    <h4>Project</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -42,10 +39,10 @@
             @Html.DisplayFor(model => model.Status)
         </dd>
     </dl>
-    
-    <form asp-action="Delete">
+    <hr />
+    <form asp-action="DeleteConfirmed">
         <input type="hidden" asp-for="ProjectId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn btn-secondary mx-5" asp-action="Index">Back to List</a>
     </form>
 </div>

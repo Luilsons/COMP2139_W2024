@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Lab1.Data;
-using Lab1.Models;
+using MVC_Application.Data;
+using MVC_Application.Models;
 
-namespace Lab1.Controllers
+namespace MVC_Application.Controllers
 {
     public class ProjectsController : Controller
     {
@@ -17,13 +17,6 @@ namespace Lab1.Controllers
 
         public IActionResult Index()
         {
-            //     var projects = new List<Project>()
-            //    {
-            //     new Project {ProjectId = 1, Name = "Project 1", Description = "First Project" },
-            //     new Project {ProjectId = 2, Name = "Project 2", Description = "Second Project" }
-            //    // Feel free to add more projects
-            //};
-
             return View(_db.Projects.ToList());
         }
 
@@ -46,17 +39,23 @@ namespace Lab1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public IActionResult Create(Project project)
         {
             if (ModelState.IsValid)
             {
+                if (project.EndDate < project.StartDate)
+                {
+                    ModelState.AddModelError("EndDate", "End date must be greater than start date.");
+                    return View(project);
+                }
+
                 _db.Projects.Add(project);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View();
         }
+
 
 
         public IActionResult Edit(int id)
@@ -123,15 +122,14 @@ namespace Lab1.Controllers
 
         public IActionResult DeleteConfirmed(int ProjectId)
         {
-            var project = _db.Projects.Find(ProjectId);
+            var project = _db.Projects.Include(p => p.Tasks).FirstOrDefault(p => p.ProjectId == ProjectId);
             if (project != null)
             {
+                _db.ProjectTasks.RemoveRange(project.Tasks);
                 _db.Projects.Remove(project);
                 _db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
-
-            // Handle the case where the project might not be found
 
             return NotFound();
         }

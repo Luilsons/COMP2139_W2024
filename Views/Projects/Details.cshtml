@@ -1,14 +1,13 @@
-﻿@model Lab1.Models.Project
+﻿@model MVC_Application.Models.Project
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="display-2">Project details</h1>
+<hr />
 
 <div>
-    <h4>Project</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -43,6 +42,7 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProjectId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <hr />
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.ProjectId">Edit</a>
+    <a class="btn btn-secondary mx-5" asp-action="Index">Back to List</a>
 </div>

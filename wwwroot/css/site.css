@@ -1,22 +1,69 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #41464b;
+    color: white;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Inter:wght@400;600;700&display=swap');
+
+#nav-logo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 2rem !important;
+    color: white !important;
+}
+
+#nav-main a {
+    font-size: 1.25rem;
+    color: #bdbdbd;
+    height: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.about {
+    background-color: #41464b;
+    color: white;
+    border-color: #bdbdbd;
+}
+
+.bottom-border {
+    border-width: 0 0 2px 0 !important;
+}
+
+.footer-border {
+    border-color: #bdbdbd !important;
+}
+
+.row-info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.vheight-main {
+    height: 60vh;
+}
+
+
+.list-hover:hover {
+    background-color: #222129!important;
 }

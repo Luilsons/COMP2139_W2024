@@ -2,7 +2,49 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to MVC Application!</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="h-100 d-flex flex-column justify-content-between">
+    <div class="text-center">
+        <h1 class="display-2">Welcome to MVC Application!</h1>
+        <h4 class="text-light mt-5">
+            In this application, you can register, view, update, and delete projects and their respective tasks!
+        </h4>
+        <h5 class="text-light mt-5">Each item below represents a link to a GitHub commit capturing the application's state from its inception to the current moment, allowing you to analyze the application's changes over its evolution :)</h5>
+    </div>
+
+    <div class="text-center">
+        <div class="list-group">
+            <a href="https://github.com/Luilsons/COMP2139_W2024/tree/V1" class="list-group-item list-group-item-action flex-column align-items-start bg-dark list-hover">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 text-light">COMP 2139 - Part 1</h5>
+                    <small class="text-muted fw-bolder">2024-01-27</small>
+                </div>
+                <p class="mb-1 text-muted fw-bolder">The project structure was implemented to create and view project details within the system.</p>
+                <small class="text-muted fw-bolder">This commit simply uploads the first version of the application to GitHub.</small>
+            </a>
+            <a href="https://github.com/Luilsons/COMP2139_W2024/tree/V2" class="list-group-item list-group-item-action flex-column align-items-start bg-dark list-hover">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 text-light">COMP 2139 - Part 2</h5>
+                    <small class="text-muted fw-bolder">2024-02-17</small>
+                </div>
+                <p class="mb-1 text-muted fw-bolder">Integrates Entity Framework Core into the ASP.NET Core MVC application and adapts the controllers to correctly use the database.</p>
+                <small class="text-muted fw-bolder">A key aspect of this commit is the transformation of the project to the MVC pattern and the utilization of EF Core to perform CRUD operations on projects and tasks.</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start bg-dark list-hover">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 text-light">COMP 2139 - Part 3</h5>
+                    <small class="text-muted fw-bolder">2024-03-23</small>
+                </div>
+                <p class="mb-1 text-muted fw-bolder">This part is under development.</p>
+                <small class="text-muted fw-bolder">Commit available soon.</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start bg-dark list-hover">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 text-light">COMP 2139 - Part 4</h5>
+                    <small class="text-muted fw-bolder">2024-04-13</small>
+                </div>
+                <p class="mb-1 text-muted fw-bolder">Awaiting the previous part to start development.</p>
+                <small class="text-muted fw-bolder">Commit available soon.</small>
+            </a>
+        </div>
+    </div>
 </div>
