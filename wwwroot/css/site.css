@@ -1,3 +1,8 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 html {
     font-size: 14px;
 }
@@ -23,6 +28,7 @@ body {
     color: white;
 }
 
+
 @import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Inter:wght@400;600;700&display=swap');
 
 #nav-logo {
@@ -39,6 +45,19 @@ body {
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+/* Lab 5 – Dropdown Styling */
+/* Custom Dropdown Style */
+.nav-item.dropdown .dropdown-toggle {
+    color: white;
+    background-color: #007bff; /* Example color */
+    border-color: white; /* Example border */
+}
+
+    .nav-item.dropdown .dropdown-toggle:hover {
+        color: #007bff;
+        background-color: white;
+    }
 
 .about {
     background-color: #41464b;
@@ -60,10 +79,15 @@ body {
 }
 
 .vheight-main {
-    height: 60vh;
+    height: 80vh;
 }
 
 
 .list-hover:hover {
     background-color: #222129!important;
+}
+
+.td-desc {
+    text-align: center;
+    vertical-align: middle;
 }

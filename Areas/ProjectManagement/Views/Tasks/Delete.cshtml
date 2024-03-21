@@ -1,0 +1,36 @@
+﻿@model ProjectTask
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="display-2">Delete project task</h1>
+<hr />
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Project)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Project.Name)
+        </dd>
+    </dl>
+    <hr />
+    <form asp-action="DeleteConfirmed" asp-route-projectTaskId="@Model.ProjectTaskId" method="post">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn btn-secondary mx-5" asp-action="Index" asp-route-projectId="@Model.ProjectId">Back to List</a>
+    </form>
+
+</div>

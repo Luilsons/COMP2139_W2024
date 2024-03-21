@@ -1,0 +1,41 @@
+﻿@model List<ProjectTask>
+@{
+}
+@{
+    ViewData["Title"] = "Tasks List";
+}
+
+<h1 class="display-2">Project task list</h1>
+<hr />
+
+<table class="table table-dark table-bordered table-striped text-center text-light">
+    <thead>
+        <tr class="fw-bolder">
+            <th scope="col">Task ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Project ID</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.ProjectTaskId</td>
+                <td>@task.Title</td>
+                <td>@task.Description</td>
+                <td>@task.ProjectId</td>
+                <td class="row-info">
+                    <a asp-action="Details" asp-route-id="@task.ProjectTaskId" class="btn btn-primary">Details</a>
+                    <a asp-action="Edit" asp-route-id="@task.ProjectTaskId" class="btn btn-info">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@task.ProjectTaskId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+<a asp-action="Create" asp-route-projectId="@ViewBag.ProjectId" class=" btn btn-primary">Create New Task</a>
+<a asp-controller="Projects" asp-action="Index" class="btn btn-secondary mx-5">Back to Projects</a>

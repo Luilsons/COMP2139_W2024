@@ -1,0 +1,18 @@
+﻿@model MVC_Application.Areas.ProjectManagement.Models.Project
+
+
+<div>
+    <span><b>Start Date: </b>@Model.StartDate.ToShortDateString()</span>
+    <span style="margin-left: 20px;"><b>End Date: </b>@Model.EndDate.ToShortDateString()</span>
+    
+    @if (Model.Tasks != null && Model.Tasks.Count > 0)
+    {
+        <p><b>- - - Tasks - - -</b></p>
+        <ol>
+            @foreach (var task in Model.Tasks)
+            {
+                <li>@task.Title - @task.Description</li>
+            }
+        </ol>
+    }
+</div>
